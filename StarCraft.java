@@ -86,6 +86,9 @@ public class StarCraft {
             System.out.printf("[안내] 상대 유닛의 남은 [체력]은 %d 입니다.\n", unit2.getStamina());
             System.out.println("-".repeat(30));
         }
+        System.out.println("[안내] 더 이상 공격할 수 없습니다.");
+        System.out.println("[안내] 상대 유닛이 제거되었습니다.");
+
         scan.close();
     }
 }
