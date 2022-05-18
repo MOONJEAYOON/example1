@@ -1,4 +1,4 @@
-package com.example1;
+package com.menu;
 
 public class KioskStart {
     public static void main(String[] args) {

@@ -1,7 +1,5 @@
-package com.example1;
+package com.menu;
 import java.util.Scanner;
-
-import ch.qos.logback.core.net.SyslogOutputStream;
 
 public class Kiosk_Program {
     Kiosk_Program() {
@@ -50,7 +48,6 @@ public class Kiosk_Program {
     }
     //1. 메뉴 선택
     public int count(int c) {
-
         return c;
     }
 
