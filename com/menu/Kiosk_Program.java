@@ -6,7 +6,7 @@ public class Kiosk_Program implements IProgramLifecycle {
 
     Scanner scan;// 스캐너 변수
     Menu[] menus;// 메뉴 변수
-    int menuNum;
+    int menuNum;//메뉴 번호 담을 변수
 
     // 프로그램 시작 함수
     @Override
@@ -57,8 +57,8 @@ public class Kiosk_Program implements IProgramLifecycle {
         menus[2] = new Menu(3, "총무 김밥", 1000);
         menus[3] = new Menu(4, "떡볶이", 2000);
     }
-    //2. 수량 입력
 
+    //2. 수량 입력
     public void cost(int num) {
         System.out.println("------------------------------");
         int menuCount;
@@ -74,7 +74,7 @@ public class Kiosk_Program implements IProgramLifecycle {
 
         if (menuCount > 99 || menuCount <= 0) {
             System.out.println("주문 가능 수량을 잘못 입력하셨습니다.");
-            cost(num);
+            cost(num);//재귀함수
         } else {
             output_print(menuCount * menus[num - 1].getPrice());
         }
