@@ -107,6 +107,12 @@ public class MyStorageV3 {
 
     }
     public static void main(String[] args) {
+        if(args==null){
+
+        }else{
+            System.out.printf("%s 점장님 어서오세요\n",args[0]);
+            System.out.println("[System] 해당 프로그램의 기능입니다.");
+        }
         MyStorageV3 myStorageV3 = new MyStorageV3();
         myStorageV3.navi();
 
