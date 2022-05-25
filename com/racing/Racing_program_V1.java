@@ -17,9 +17,8 @@ class Racing_MyCar implements Racing {
     private int speed = 0;//주행거리
     private int distanceDriven = 0;//주행거리
     private int cashCarLv = 1;//캐쉬레벨
-
-
     Scanner scan = new Scanner(System.in);
+
     public Racing_MyCar(String User_CarNumber){
         this.User_CarNumber = User_CarNumber;
     }
@@ -55,13 +54,13 @@ class Racing_MyCar implements Racing {
     public void setDistanceDriven(int distanceDriven) {
         this.distanceDriven = distanceDriven;
     }
-
+    @Override
     public void start(){
         String num;
         System.out.printf("\n[안내] %s님. 카카오라이딩에 오신것을 진심으로 환영합니다.\n",
                 User_CarNumber);
         while (true) {
-            System.out.print("카카오라이딩 조작버튼을 누르세요. \n" +
+            System.out.print("\n카카오라이딩 조작버튼을 누르세요. \n" +
                     "-------------------------\n" +
                     "1) [가속]\n" +
                     "2) [부스터 가속]\n" +
@@ -100,52 +99,54 @@ class Racing_MyCar implements Racing {
             }
         }
     }
-
+    @Override
     public void accelerate(){
         setControls(getControls() + 1);
         setSpeed(getSpeed() + 10 * cashCarLv);
         setDistanceDriven(getDistanceDriven() + getSpeed());
         if (cashCarLv > 1) {
 
-            System.out.printf("Lv%s [가속]--------------------------\n" +
+            System.out.printf("Lv%s [가속]----------------\n" +
                     "| * 컨트롤 횟수 : %s\n" +
                     "| * 현재 속도 : %skm/h\n" +
                     "| * 현재 주행 거리 : %skm\n" +
-                    "------------------------------------",cashCarLv, controls, speed, distanceDriven);
+                    "-------------------------",cashCarLv, controls, speed, distanceDriven);
 
         } else {
-            System.out.printf("[가속]--------------------------\n" +
+            System.out.printf("[가속]--------------------\n" +
                     "| * 컨트롤 횟수 : %s\n" +
                     "| * 현재 속도 : %skm/h\n" +
                     "| * 현재 주행 거리 : %skm\n" +
-                    "------------------------------------", controls, speed, distanceDriven);
+                    "-------------------------", controls, speed, distanceDriven);
         }
     }
+    @Override
     public void booster(){
         setControls(getControls() + 1);
         setSpeed(getSpeed() + 20 * cashCarLv);
         setDistanceDriven(getDistanceDriven() + getSpeed());
         if (cashCarLv > 1) {
-            System.out.printf("Lv%s [부스터가속]--------------------------\n" +
+            System.out.printf("Lv%s [부스터가속]------------\n" +
                     "| * 컨트롤 횟수 : %s\n" +
                     "| * 현재 속도 : %skm/h\n" +
                     "| * 현재 주행 거리 : %skm\n" +
-                    "------------------------------------",cashCarLv, controls, speed, distanceDriven);
+                    "-------------------------",cashCarLv, controls, speed, distanceDriven);
 
         } else {
-            System.out.printf("[부스터가속]--------------------------\n" +
+            System.out.printf("[부스터가속]----------------\n" +
                     "| * 컨트롤 횟수 : %s\n" +
                     "| * 현재 속도 : %skm/h\n" +
                     "| * 현재 주행 거리 : %skm\n" +
-                    "------------------------------------", controls, speed, distanceDriven);
+                    "-------------------------", controls, speed, distanceDriven);
         }
     }
+    @Override
     public void drift() {
         setControls(getControls() + 1);
         setSpeed(5);
         setDistanceDriven(getDistanceDriven() + getSpeed());
 
-        System.out.print("[방향 회전]-------------------------\n" +
+        System.out.print("[방향 회전]----------------\n" +
                 "| * 회전 방향 입력 [<] [>] : \n");
         String direction;
         direction = scan.nextLine();
@@ -153,26 +154,26 @@ class Racing_MyCar implements Racing {
                 "| * 컨트롤 횟수 : %s\n" +
                 "| * 현재 속도 : %skm/h\n" +
                 "| * 현재 주행 거리 : %skm\n" +
-                "------------------------------------",direction,controls,speed,distanceDriven);
+                "-------------------------",direction,controls,speed,distanceDriven);
     }
-
+    @Override
     public void reverseDriving() {
         setControls(getControls() + 1);
         setSpeed(5);
         setDistanceDriven(getDistanceDriven() - getSpeed());
-        System.out.printf("[후진]-------------------------------\n" +
+        System.out.printf("[후진]--------------------\n" +
                 "| * 컨트롤 횟수 : %s\n" +
                 "| * 현재 속도 : %skm/h\n" +
                 "| * 현재 주행 거리 : %skm\n" +
-                "------------------------------------",controls,speed,distanceDriven);
+                "-------------------------",controls,speed,distanceDriven);
     }
 
     @Override
     public void cashCar() {
         cashCarLv++;
-        System.out.printf("[안내] (캐쉬충전)%s님. 차량 업그레이드를 진행하였습니다.",User_CarNumber);
+        System.out.printf("[안내] (캐쉬충전)%s님. 차량 업그레이드를 진행하였습니다.\n",User_CarNumber);
     }
-
+    @Override
     public void parking() {
         System.out.println("[주행을 종료합니다]");
         scan.close();
